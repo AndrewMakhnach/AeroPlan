@@ -1,0 +1,25 @@
+{% extends 'aero/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="div-row">
+        <div class="div-cell one-third">
+            <img class="image" src="../static/aero/images/photo1.jpg">
+        </div>
+        <div class="div-cell one-third with_shadow cell-text">
+            <h1 class="subtitle">Расписание</h1>
+            <div class="price-row"><span class="middle"><b>Понедельник</b></span><span>18:00 - 19:00<br>19:15 - 20:15</span></div>
+            <div class="price-row"><span><b>Вторник</b></span><span>10:15 - 11:15<br>11:30 - 12:30<br>19:30 -20:30</span></div>
+            <div class="price-row"><span><b>Среда</b></span><span>11:15 - 12:15<br>18:00 - 19:00<br>19:15 - 20:15</span></div>
+            <div class="price-row"><span><b>Четверг</b></span><span>18:00 - 19:00<br>19:15 - 20:15</span></div>
+            <div class="price-row"><span><b>Пятница</b></span><span>11:30 - 12:30<br>17:00 - 18:00<br>18:15 - 19:15</span></div>
+            <div class="price-row"><span><b>Суббота</b></span><span>12:15</span></div>
+            <div class="price-row"><span><b>Воскресенье</b></span><span class="red">выходной</span></div>
+        </div>
+        <div class="div-cell one-third">
+            <img class="image" src="../static/aero/images/photo5.jpg">
+        </div>
+    </div>
+</div>
+{% endblock %}

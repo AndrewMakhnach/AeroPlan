@@ -1,0 +1,51 @@
+{% extends 'aero/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="div-row">
+        <div class="div-cell half cell-text">
+            <form action="" method="post" class="form">
+                {% csrf_token %}
+                <h1 class="subtitle" align="center">Online запись</h1>
+                <table class="table-form" cellpadding="15" cellspacing="0" align="center" border="1">
+                    {% csrf_token  %}
+                    <tr><td width="40%">Имя:</td><td>{{ form.name }}<br><div class="alert alert-danger">{{ form.name.errors }}</div></td></tr>
+                    <tr><td >Фамилия:</td><td>{{ form.soname }}<br><div class="form-error">{{ form.soname.errors }}</div></td></tr>
+                    <tr><td>Телефон:</td><td>{{ form.tel }}<br><div class="form-error">{{ form.tel.errors }}</div></td></tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="div-row-form">
+                                {% for day, num in week.items %}
+                                    <div align="center">{{day}}<sup>{{num}}</sup><br>
+                                        <p class="select">
+                                            {% if day == 'Пн' %}
+                                                {{ form.train_mon }}
+                                            {% elif day == 'Вт' %}
+                                                {{ form.train_tue }}
+                                            {% elif day == 'Ср' %}
+                                                {{ form.train_wed }}
+                                            {% elif day == 'Чт' %}
+                                                {{ form.train_thu }}
+                                            {% elif day == 'Пт' %}
+                                                {{ form.train_fri }}
+                                            {% elif day == 'Сб' %}
+                                                {{ form.train_sat }}
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr><td colspan="2" align="center"><button type="submit">Записаться</button></td></tr>
+                </table>
+                <div id="agree">
+                    <input type="checkbox" checked>
+                    <div align="center">Даю согдасие на <a href="../static/aero/images/cookie.pdf">обработку персональных данных</a></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

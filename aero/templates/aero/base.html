@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{{title}}</title>
+    <link rel="shortcut icon" href="{% static 'aero/images/main.ico' %}" type="image/x-icon"/>
+    <link type="text/css" href="{% static 'aero/css/style.css' %}" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script defer src="{% static 'aero/js/script.js' %}"></script>
+</head>
+<body>
+    <header class="header open">
+            <div class="menu-container">
+                <a href="{% url 'index' %}" class="header-logo"><img class="logo" src="{% static 'aero/images/logo.jpg' %}"></a>
+                <div class="header-burger" id="header-burger">
+                    <span></span>
+                </div>
+                <ul class="main-menu" id="main-menu">
+                    <li><a href="{% url 'price' %}" class="{% if request.path == '/price/' %}active{% endif%}">ЦЕНЫ</a></li>
+                    <li><a href="{% url 'schedule' %}" class="{% if request.path == '/schedule/' %}active{% endif%}">РАСПИСАНИЕ</a></li>
+                    <li><a class="button" href="{% url 'book' %}">ЗАПИСАТЬСЯ</a></li>
+                </ul>
+                <a id="button" class="button sub"  href="{% url 'book' %}">ЗАПИСАТЬСЯ</a>
+            </div>
+    </header>
+    {% block content %}
+    {% endblock content %}
+</body>
+<div class="footer grey">
+        <div class="div-cell one-third" align="center">
+            <span class="div-row">220070, г. Минск, пр-т Партизанский 14</span>
+            <span class="div-row">2 этаж, пом. 216</span>
+        </div>
+        <div class="div-cell one-third" align="center">
+            <a class="treaty div-row" href="../static/aero/images/cookie.pdf">Политика обработки персональных данных</a>
+        </div>
+        <div class="div-cell one-third" align="center">
+            <span class="div-row">тел. +375 (44) 582-54-74</span>
+            <a href="https://www.instagram.com/aeroplan_stretch/" align="center">
+                <img class="inst" src="{% static 'aero/images/inst.png' %}">
+            </a>
+        </div>
+</html>
